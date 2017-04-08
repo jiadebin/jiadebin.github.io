@@ -21,7 +21,7 @@
 <meta property="og:description" content="1. 大/小尾端数据在内存中的存放方式可以分为大尾端（Big-endian）、小尾端（Little-endian）：1）Little-Endian就是低位字节排放在内存的低地址端，高位字节排放在内存的高地址端。2）Big-Endian就是高位字节排放在内存的低地址端，低位字节排放在内存的高地址端。
 如何得知本机是大尾端还是小尾端呢？只需运行如下代码：  
 123456789101112131415">
-<meta property="og:updated_time" content="2017-04-08T11:34:48.000Z">
+<meta property="og:updated_time" content="2017-04-08T16:08:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bit Field">
 <meta name="twitter:description" content="1. 大/小尾端数据在内存中的存放方式可以分为大尾端（Big-endian）、小尾端（Little-endian）：1）Little-Endian就是低位字节排放在内存的低地址端，高位字节排放在内存的高地址端。2）Big-Endian就是高位字节排放在内存的低地址端，低位字节排放在内存的高地址端。
@@ -118,6 +118,7 @@
 <p>bit field不止可以节省内存，它也提高了代码的可读性，试想一下，对于上面的程序，如果不直接赋值，而使用位运算的方式实现，那么代码会变成下面的样子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> OFFSET 2</span></div><div class="line">s &amp;= ~(<span class="number">3</span>&lt;&lt;OFFSET);   <span class="comment">//clear bits of b</span></div><div class="line">s |= east &lt;&lt; OFFSET;</div></pre></td></tr></table></figure></p>
 <p>因此，使用bit field之后可以很方便地以非字节对齐的方式赋值。</p>
 <h3 id="2-3-bit-field-内存占用字节数"><a href="#2-3-bit-field-内存占用字节数" class="headerlink" title="2.3 bit field 内存占用字节数"></a>2.3 bit field 内存占用字节数</h3><p>对于上面代码中的结构体my_direct，占用空间为sizeof（unsigned int），即一整个unsigned int类型的大小，即使你只用了其中4个bit。如果想要更加节省，可以使用char类型。</p>
+<p><strong>参考</strong>：<a href="http://stackoverflow.com/questions/24933242/when-to-use-bit-fields-in-c" target="_blank" rel="external">http://stackoverflow.com/questions/24933242/when-to-use-bit-fields-in-c</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,7 +127,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/C/">C</a><a href="/tags/C/">C++</a><a href="/tags/Bit-Field/">Bit Field</a>
+  <span></span> <a href="/tags/C/">C++</a><a href="/tags/C/">C</a><a href="/tags/Bit-Field/">Bit Field</a>
   </div>
 
 </div>
@@ -190,19 +191,7 @@
 			
 		
 			
-				<li><a href="/tags/Paxos/" title="Paxos">Paxos<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/B-tree/" title="B+tree">B+tree<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Bit-Field/" title="Bit Field">Bit Field<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/shell/" title="shell">shell<sup>1</sup></a></li>
+				<li><a href="/tags/time/" title="time">time<sup>1</sup></a></li>
 			
 		
 			
@@ -210,7 +199,7 @@
 			
 		
 			
-				<li><a href="/tags/C/" title="C">C<sup>1</sup></a></li>
+				<li><a href="/tags/Paxos/" title="Paxos">Paxos<sup>1</sup></a></li>
 			
 		
 			
@@ -222,7 +211,11 @@
 			
 		
 			
-				<li><a href="/tags/time/" title="time">time<sup>1</sup></a></li>
+				<li><a href="/tags/shell/" title="shell">shell<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/B-tree/" title="B+tree">B+tree<sup>1</sup></a></li>
 			
 		
 			
@@ -231,6 +224,14 @@
 		
 			
 				<li><a href="/tags/隔离级别/" title="隔离级别">隔离级别<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C">C<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Bit-Field/" title="Bit Field">Bit Field<sup>1</sup></a></li>
 			
 		
 		</ul>
